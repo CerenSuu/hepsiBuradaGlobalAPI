@@ -10,6 +10,7 @@ import testData.Data;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Req  extends URL {
 
@@ -28,6 +29,7 @@ public class Req  extends URL {
         JsonPath respJsonPath = res.jsonPath();
         assertEquals(jsonPlaceHolder.basariliStatusKod,res.getStatusCode()); //jUnıt den statıc code ımport ettık
         assertEquals(expBody.get("items"),respJsonPath.get("slideshow.slides[1].items[0]"));
+        assertTrue(respJsonPath.get("slideshow.slides[1].items")!= null);
     }
 
 
